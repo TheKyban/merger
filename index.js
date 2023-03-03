@@ -26,7 +26,9 @@ app.post('/merger', upload.array('pdfs', 2), async (req, res, next)=> {
     let p1 = path.join(__dirname, req.files[0].path);
     let p2 = path.join(__dirname, req.files[1].path)
     let d = await pdfMerger(p1, p2)
-    res.redirect(`http://localhost:${port}/static/merge/${d}.pdf` )
+    // res.redirect(`http://localhost:${port}/static/merge/${d}.pdf`)
+    res.redirect(`https://tools-k6wx.onrender.com/static/merge/${d}.pdf`) // for render
+
     p1=""
     p2=""
   })
